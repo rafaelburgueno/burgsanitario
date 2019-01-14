@@ -1,21 +1,29 @@
 <?php
 
-require_once "conexion.php";
+require_once "visitas.conexion.php";
 
-class Modelo extends Conexion{
+class VisitasModelo extends Conexion{
 
     /*=============================
-    Login
+    Registro visitas
     =============================*/
-    public function ingresoMdl($usuario, $tabla){
+    public function registroVisitasMdl($tabla, $descripcion, $ip){
 
-		$stmt = Conexion::conectar()->prepare("SELECT usuario, password FROM $tabla WHERE usuario = :usuario LIMIT 1");
-		$stmt->bindParam(":usuario", $usuario, PDO::PARAM_STR);
-		$stmt->execute();
+        // $prueba = "string desde el modelo";
 
-		return $stmt->fetch();
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (accion, ip ) VALUES(:accion, :ip)");
 
-		$stmt->close();
+        $stmt->bindParam(":accion", $descripcion, PDO::PARAM_STR);
+        $stmt->bindParam(":ip", $ip, PDO::PARAM_STR);
+
+
+        if($stmt->execute()){
+            return "exito";
+        }else{
+            return "error";
+        }
+
+        $stmt->close();
 
 	}
 
@@ -23,7 +31,7 @@ class Modelo extends Conexion{
     TABLA sin parametros
     =============================*/
 
-    public function tablaMdl($tabla){
+    /*public function tablaMdl($tabla){
 
         $stmt = Conexion::conectar()->prepare("SELECT id, nota, fecha FROM $tabla ORDER BY id DESC");
         $stmt->execute();
@@ -38,7 +46,7 @@ class Modelo extends Conexion{
     TABLA-BUSQUEDA con parametros
     =============================*/
 
-    public function buscarTablaMdl($buscar, $tabla){
+    /*public function buscarTablaMdl($buscar, $tabla){
 
         $buscar = "%".$buscar."%";
 
@@ -58,7 +66,7 @@ class Modelo extends Conexion{
     /*========================================
     ACTUALIZAR
     ========================================*/
-    public function actualizarNotaMdl($id, $nota, $tabla){
+    /*public function actualizarNotaMdl($id, $nota, $tabla){
 
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nota = :nota WHERE id = :id");
 
@@ -79,7 +87,7 @@ class Modelo extends Conexion{
     /*========================================
     BORRAR ID
     ========================================*/
-    public function borrarIdMdl($id, $tabla){
+    /*public function borrarIdMdl($id, $tabla){
 
 //DELETE FROM `notas` WHERE `notas`.`id` = 33"
         $stmt = Conexion::conectar()->prepare("DELETE  FROM $tabla WHERE id = :id");
@@ -99,7 +107,7 @@ class Modelo extends Conexion{
     /*========================================
     CREAR
     ========================================*/
-    public function crearNotaMdl($datos, $tabla){
+    /*public function crearNotaMdl($datos, $tabla){
 //INSERT INTO `notas`(`id`, `nota`, `fecha`) VALUES ([value-1],[value-2],[value-3])
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nota) VALUES(:nota)");
 
@@ -113,7 +121,7 @@ class Modelo extends Conexion{
 
         $stmt->close();
 
-    }
+    }*/
 
 
 

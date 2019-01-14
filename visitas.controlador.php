@@ -1,101 +1,62 @@
-<?php
-require_once "../controladores/usuarios.controlador.php";
-require_once "../modelos/usuarios.modelo.php";
+<?php 
 
-class AjaxUsuarios{
+require_once "visitas.modelo.php";
 
+/*===================================
+    Obtener ip
+===================================*/
+function getRealIP() {
+    if (isset($_SERVER["HTTP_CLIENT_IP"])){
+        return $_SERVER["HTTP_CLIENT_IP"];
+    }elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])){
+        return $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }elseif (isset($_SERVER["HTTP_X_FORWARDED"])){
+        return $_SERVER["HTTP_X_FORWARDED"];
+    }elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])){
+        return $_SERVER["HTTP_FORWARDED_FOR"];
+    }elseif (isset($_SERVER["HTTP_FORWARDED"])){
+        return $_SERVER["HTTP_FORWARDED"];
+    }elseif (isset($_SERVER["REMOTE_ADDR"])){
+        return $_SERVER["REMOTE_ADDR"];
+    }else{
+        return "no se obtuvo direccion ip";
+    }
+}
+
+
+
+class VisitasControlador{
+
+    public $accion;
+    
 
     /*===================================
-    EDITAR USUARIO
+    Registrar visita
     ===================================*/
-    public $idUsuario;
-    public function ajaxEditarUsuario(){
 
-        $item = "id";
-        $valor = $this->idUsuario;
+    public function guardarVisitaCtr(){
 
-        $respuesta = ControladorUsuarios::ctrAjaxMostrarUsuarios($item, $valor);
+        $descripcion = $this->accion;
+        $ip = getRealIP();
 
-        echo json_encode($respuesta);
-        //echo "desde el archivo ajax, el valor es: ".$valor;
+        $respuesta = VisitasModelo::registroVisitasMdl("registro_visitas", $descripcion, $ip);
 
-    }
-
-
-    /*===================================
-    ESTADO USUARIO
-    ===================================*/
-    public $activarId;
-    public $activarUsuario;
-    public function ajaxActivarUsuario(){
-
-        $tabla = "usuarios";
-        $item1= "estado";
-        $valor1 = $this->activarUsuario;
-        $item2= "id";
-        $valor2 = $this->activarId;
-
-        $respuesta = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
-
-
+       return $respuesta;
 
     }
-
-
-    /*==========================================
-    VALIDAR USUARIO
-    ==========================================*/
-    public $validarUsuario;
-    public function ajaxValidarUsuario(){
-
-        $item = "usuario";
-        $valor = $this->validarUsuario;
-
-        $respuesta = ControladorUsuarios::ctrAjaxMostrarUsuarios($item, $valor);
-
-        echo json_encode($respuesta);
-        //echo "desde el archivo ajax, el valor es: ".$valor;
-
-
-    }
-
 
 
 }
 
 /*===================================
-EDITAR USUARIO
+Registrar visita
 ===================================*/
-if( isset($_POST['idUsuario']) ){
+if( isset($_POST['visita']) ){
 
-    $editar = new AjaxUsuarios();
-    $editar->idUsuario = $_POST['idUsuario'];
-    $editar->ajaxEditarUsuario();
-
-
-}
-
-
-/*===================================
-ESTADO USUARIO
-===================================*/
-if( isset($_POST['activarUsuario']) ){
-
-    $estado = new AjaxUsuarios();
-    $estado->activarId = $_POST['activarId'];
-    $estado->activarUsuario = $_POST['activarUsuario'];
-    $estado->ajaxActivarUsuario();
+    $registro = new VisitasControlador();
+    $registro->accion = $_POST['visita'];
+    $registro->guardarVisitaCtr();
 
 }
 
 
-/*==========================================
-VALIDAR USUARIO
-==========================================*/
-if( isset($_POST['validarUsuario']) ){
-
-    $valUsuario = new AjaxUsuarios();
-    $valUsuario->validarUsuario = $_POST['validarUsuario'];
-    $valUsuario->ajaxValidarUsuario();
-
-}

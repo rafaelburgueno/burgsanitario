@@ -1,40 +1,44 @@
 /*=============================================
-contador
+contador de visitas
 =============================================*/
-$(".tablas").on("click", ".btnEditarUsuario", function() {
-    //$(".btnEditarUsuario").click(function(){
+/*$(document).ready(function() {
 
-    var idUsuario = $(this).attr("idUsuario");
+    var accion = "Un usuario ha visitado la pagina (msj desde jquery)";
 
     var datos = new FormData();
-    datos.append("idUsuario", idUsuario);
+    datos.append("visita", accion);
 
     $.ajax({
 
-        url: "ajax/usuarios.ajax.php",
+        url: "visitas.controlador.php",
         method: "POST",
         data: datos,
         cache: false,
         contentType: false,
         processData: false,
-        dataType: "json",
         success: function(respuesta) {
 
-            console.log("ejecuto el ajax");
+            console.log(respuesta);
+
+            // console.log("ejecuto el ajax y mado la info: " + accion);
 
         }
 
     });
 
-});
+});*/
+
+
+
+
+
 
 
 
 /*=============================================
 EDITAR USUARIO
 =============================================*/
-$(".tablas").on("click", ".btnEditarUsuario", function() {
-    //$(".btnEditarUsuario").click(function(){
+/*$(".tablas").on("click", ".btnEditarUsuario", function() {
 
     var idUsuario = $(this).attr("idUsuario");
 
@@ -81,8 +85,7 @@ $(".tablas").on("click", ".btnEditarUsuario", function() {
 /*===============================================
 ACTIVAR USUARIO
 ===============================================*/
-$(".tablas").on("click", ".btnActivar", function() {
-    //$(".btnActivar").click(function(){
+/*$(".tablas").on("click", ".btnActivar", function() {
 
     var idUsuario = $(this).attr("idUsuario");
     var estadoUsuario = $(this).attr("estadoUsuario");
@@ -146,7 +149,7 @@ $(".tablas").on("click", ".btnActivar", function() {
 /*==================================
 REVISAR USUARIO REGISTRADO
 ==================================*/
-$('#nuevoUsuario').change(function() {
+/*$('#nuevoUsuario').change(function() {
 
     $('.alert').remove();
 
@@ -181,8 +184,7 @@ $('#nuevoUsuario').change(function() {
 /*===============================
 ELIMINAR USUARIO
 ===============================*/
-$(".tablas").on("click", ".btnEliminarUsuario", function() {
-    //$(".btnEliminarUsuario").click(function(){
+/*$(".tablas").on("click", ".btnEliminarUsuario", function() {
 
     var idUsuario = $(this).attr("idUsuario");
     var fotoUsuario = $(this).attr("fotoUsuario");
@@ -197,7 +199,7 @@ $(".tablas").on("click", ".btnEliminarUsuario", function() {
         cancelButtonText: "Cancelar",
         confirmButtonColor: "#3085d6",
         confirmButtonText: "Si, borrar usuarior"
-            //closeOnConfirm: false
+
     }).then(function(result) {
         if (result.value) {
             window.location = "index.php?ruta=usuarios&idUsuario=" + idUsuario + "&fotoUsuario=" + fotoUsuario + "&usuario=" + usuario;
@@ -205,3 +207,4 @@ $(".tablas").on("click", ".btnEliminarUsuario", function() {
     })
 
 });
+*/

@@ -1,3 +1,17 @@
+<?php 
+
+require_once "visitas.controlador.php";
+
+try {
+    $registro = new VisitasControlador();
+    $registro->accion = "carga de la pagina sin ajax";
+    $confirmacion = $registro->guardarVisitaCtr();
+} catch (Exception $e) {
+    $confirmacion = $e->getMessage();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -71,7 +85,6 @@
         </div>
 
         <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button">PORTFOLIO</a>
-        <!-- <a routerLink="sobre-mi" onclick="w3_close()" class="w3-bar-item w3-button">SOBRE MI</a> -->
         <a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
         <hr>
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">cerrar</a>
@@ -96,14 +109,13 @@
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 
-
     <!-- !PAGE CONTENT! -->
     <div id="portfolio" class="w3-main" style="margin-left:300px">
 
         <!-- Push down content on small screens -->
         <div class="w3-hide-large" style="margin-top:83px"></div>
 
-        <!-- <router-outlet></router-outlet> -->
+        
 
         <!-- Photo grid -->
         <div class="w3-row w3-animate-opacity">
@@ -211,12 +223,24 @@
         </div>
 
 
+        <!--===================================
+        CONFIRMACION DE LA CAPTURA DE DATOS
+        ====================================-->
+        
+        <?php
+
+            if($confirmacion == 'exito'){
+                echo '<div class="w3-panel w3-green">';
+                echo '<h3>Notificación</h3><p>Se han guardado datos de su dirección ip.</p></div>';
+            }else{
+                echo '<div class="w3-panel w3-red">';
+                echo '<h3>Notificación</h3><p>'. $confirmacion .'</p></div>';
+            }
+
+        ?>
 
 
-
-
-
-    </div>
+    </div><!--fin del PAGE CONTENT-->
 
 
 
@@ -242,7 +266,9 @@
         }
     </script>
 
-    <script src="visitas.ajax.js"></script>
+    <script src="ajax.js"></script>
+
+
 
 </body>
 
