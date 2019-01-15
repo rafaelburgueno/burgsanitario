@@ -46,6 +46,22 @@ class VisitasControlador{
     }
 
 
+    /*===================================
+    Registrar clicks
+    ===================================*/
+
+    public function guardarClickCtr(){
+
+        $dato = "Click en ".$this->accion;
+        $ip = getRealIP();
+
+        $respuesta = VisitasModelo::registroClickMdl("registro_visitas", $dato, $ip);
+
+       echo $respuesta;
+
+    }
+
+
 }
 
 /*===================================
@@ -56,6 +72,17 @@ if( isset($_POST['visita']) ){
     $registro = new VisitasControlador();
     $registro->accion = $_POST['visita'];
     $registro->guardarVisitaCtr();
+
+}
+
+/*===================================
+Registrar clicks
+===================================*/
+if( isset($_POST['click']) ){
+
+    $click = new VisitasControlador();
+    $click->accion = $_POST['click'];
+    $click->guardarClickCtr();
 
 }
 

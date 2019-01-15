@@ -25,7 +25,32 @@ class VisitasModelo extends Conexion{
 
         $stmt->close();
 
+    }
+    
+
+    /*=============================
+    Registro visitas
+    =============================*/
+    public function registroClickMdl($tabla, $dato, $ip){
+
+        // me quede por aca!!!!!!!!!!!!!!!
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (accion, ip ) VALUES(:accion, :ip)");
+
+        $stmt->bindParam(":accion", $dato, PDO::PARAM_STR);
+        $stmt->bindParam(":ip", $ip, PDO::PARAM_STR);
+
+
+        if($stmt->execute()){
+            return "exito";
+        }else{
+            return "error";
+        }
+
+        $stmt->close();
+
 	}
+
 
     /*=============================
     TABLA sin parametros

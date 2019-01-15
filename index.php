@@ -84,8 +84,8 @@ try {
 
         </div>
 
-        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button">PORTFOLIO</a>
-        <a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button">CONTACTO</a>
+        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button" title="portfolio">PORTFOLIO</a>
+        <a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button" title="contacto">CONTACTO</a>
         <hr>
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">cerrar</a>
 
@@ -228,7 +228,7 @@ try {
         ====================================-->
         
         <?php
-
+            /*
             if($confirmacion == 'exito'){
                 echo '<div class="w3-panel w3-green">';
                 echo '<h3>Notificación</h3><p>Se han guardado datos de su dirección ip.</p></div>';
@@ -236,7 +236,7 @@ try {
                 echo '<div class="w3-panel w3-red">';
                 echo '<h3>Notificación</h3><p>'. $confirmacion .'</p></div>';
             }
-
+            */
         ?>
 
 
