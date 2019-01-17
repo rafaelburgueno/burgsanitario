@@ -7,15 +7,15 @@ class VisitasModelo extends Conexion{
     /*=============================
     Registro visitas
     =============================*/
-    public function registroVisitasMdl($tabla, $descripcion, $ip){
+    public function registroVisitasMdl($tabla, $descripcion, $ip, $fecha){
 
         // $prueba = "string desde el modelo";
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (accion, ip ) VALUES(:accion, :ip)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (accion, ip, fecha) VALUES(:accion, :ip, :fecha)");
 
         $stmt->bindParam(":accion", $descripcion, PDO::PARAM_STR);
         $stmt->bindParam(":ip", $ip, PDO::PARAM_STR);
-
+        $stmt->bindParam(":fecha", $fecha, PDO::PARAM_STR);
 
         if($stmt->execute()){
             return "exito";
@@ -31,14 +31,15 @@ class VisitasModelo extends Conexion{
     /*=============================
     Registro visitas
     =============================*/
-    public function registroClickMdl($tabla, $dato, $ip){
+    public function registroClickMdl($tabla, $dato, $ip, $fecha){
 
         // me quede por aca!!!!!!!!!!!!!!!
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (accion, ip ) VALUES(:accion, :ip)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (accion, ip, fecha ) VALUES(:accion, :ip, :fecha)");
 
         $stmt->bindParam(":accion", $dato, PDO::PARAM_STR);
         $stmt->bindParam(":ip", $ip, PDO::PARAM_STR);
+        $stmt->bindParam(":fecha", $fecha, PDO::PARAM_STR);
 
 
         if($stmt->execute()){

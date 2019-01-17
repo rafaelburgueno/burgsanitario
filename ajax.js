@@ -1,16 +1,16 @@
-// console.log("se ejecuta bien el ajax.....");
-
 /*=============================================
-contador de visitas
+registro al carga la pagina
 =============================================*/
-/*$(document).ready(function() {
+$(document).ready(function() {
 
-    var accion = "Un usuario ha visitado la pagina (msj desde jquery)";
+    var accion = "se cargo la pagina (jquery)";
 
     var datos = new FormData();
     datos.append("visita", accion);
+    datos.append("fecha", new Date());
 
     $.ajax({
+
         url: "visitas.controlador.php",
         method: "POST",
         data: datos,
@@ -18,22 +18,24 @@ contador de visitas
         contentType: false,
         processData: false,
         success: function(respuesta) {
-            console.log(respuesta);
+            console.log(respuesta + " -- " + accion);
         }
+
     });
 
-});*/
+});
 
 
 /*=============================================
 click
 =============================================*/
-$("a").on("click", function() {
+$(".click-registro").on("click", function() {
 
     var accion = $(this).attr("title");
 
     var datos = new FormData();
     datos.append("click", accion);
+    datos.append("fecha", new Date());
 
     $.ajax({
 
@@ -44,7 +46,7 @@ $("a").on("click", function() {
         contentType: false,
         processData: false,
         success: function(respuesta) {
-            console.log(respuesta + '. Click en ' + accion);
+            console.log(respuesta + '. Click - ' + accion);
         }
 
     });
@@ -59,10 +61,11 @@ click en fotos
 =============================================*/
 $("img").on("click", function() {
 
-    var accion = $(this).attr("src");
+    var accion = $(this).attr("alt");
 
     var datos = new FormData();
     datos.append("click", accion);
+    datos.append("fecha", new Date());
 
     $.ajax({
 
@@ -73,7 +76,7 @@ $("img").on("click", function() {
         contentType: false,
         processData: false,
         success: function(respuesta) {
-            console.log(respuesta + '. Click en ' + accion);
+            console.log(respuesta + '. Click - ' + accion);
         }
 
     });

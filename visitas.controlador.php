@@ -28,6 +28,7 @@ function getRealIP() {
 class VisitasControlador{
 
     public $accion;
+    public $fecha;
     
 
     /*===================================
@@ -37,11 +38,12 @@ class VisitasControlador{
     public function guardarVisitaCtr(){
 
         $descripcion = $this->accion;
+        $fecha = $this->fecha;
         $ip = getRealIP();
 
-        $respuesta = VisitasModelo::registroVisitasMdl("registro_visitas", $descripcion, $ip);
+        $respuesta = VisitasModelo::registroVisitasMdl("registro_visitas", $descripcion, $ip, $fecha);
 
-       return $respuesta;
+       echo $respuesta;
 
     }
 
@@ -53,9 +55,10 @@ class VisitasControlador{
     public function guardarClickCtr(){
 
         $dato = "Click en ".$this->accion;
+        $fecha = $this->fecha;
         $ip = getRealIP();
 
-        $respuesta = VisitasModelo::registroClickMdl("registro_visitas", $dato, $ip);
+        $respuesta = VisitasModelo::registroClickMdl("registro_visitas", $dato, $ip, $fecha);
 
        echo $respuesta;
 
@@ -71,6 +74,7 @@ if( isset($_POST['visita']) ){
 
     $registro = new VisitasControlador();
     $registro->accion = $_POST['visita'];
+    $registro->fecha = $_POST['fecha'];
     $registro->guardarVisitaCtr();
 
 }
@@ -82,6 +86,7 @@ if( isset($_POST['click']) ){
 
     $click = new VisitasControlador();
     $click->accion = $_POST['click'];
+    $click->fecha = $_POST['fecha'];
     $click->guardarClickCtr();
 
 }

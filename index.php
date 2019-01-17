@@ -2,13 +2,13 @@
 
 require_once "visitas.controlador.php";
 
-try {
-    $registro = new VisitasControlador();
-    $registro->accion = "carga de la pagina sin ajax";
-    $confirmacion = $registro->guardarVisitaCtr();
-} catch (Exception $e) {
-    $confirmacion = $e->getMessage();
-}
+// try {
+//     $registro = new VisitasControlador();
+//     $registro->accion = "Ingreso a la pagina";
+//     $confirmacion = $registro->guardarVisitaCtr();
+// } catch (Exception $e) {
+//     $confirmacion = $e->getMessage();
+// }
 
 ?>
 
@@ -84,8 +84,8 @@ try {
 
         </div>
 
-        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button" title="portfolio">PORTFOLIO</a>
-        <a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button" title="contacto">CONTACTO</a>
+        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button click-registro" title="portfolio">PORTFOLIO</a>
+        <a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button click-registro" title="contacto">CONTACTO</a>
         <hr>
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">cerrar</a>
 
@@ -120,45 +120,45 @@ try {
         <!-- Photo grid -->
         <div class="w3-row w3-animate-opacity">
             <div class="w3-third">
-                <img class="w3-border" src="img/1.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/2.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/3.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/4.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/6.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/7.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/8.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/9.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/10.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/11.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/12.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/13.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/14.jpg" style="width:100%" onclick="onClick(this)" alt="">
+                <img class="w3-border" src="img/1.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 1">
+                <img class="w3-border" src="img/2.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 2">
+                <img class="w3-border" src="img/3.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 3">
+                <img class="w3-border" src="img/4.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 4">
+                <img class="w3-border" src="img/6.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 6">
+                <img class="w3-border" src="img/7.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 7">
+                <img class="w3-border" src="img/8.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 8">
+                <img class="w3-border" src="img/9.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 9">
+                <img class="w3-border" src="img/10.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 10">
+                <img class="w3-border" src="img/11.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 11">
+                <img class="w3-border" src="img/12.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 12">
+                <img class="w3-border" src="img/13.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 13">
+                <img class="w3-border" src="img/14.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 14">
             </div>
 
             <div class="w3-third">
-                <img class="w3-border" src="img/15.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/16.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/17.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/18.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/19.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/20.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/21.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/22.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/23.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/24.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/27.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/28.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/38.jpg" style="width:100%" onclick="onClick(this)" alt="">
+                <img class="w3-border" src="img/15.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 15">
+                <img class="w3-border" src="img/16.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 16">
+                <img class="w3-border" src="img/17.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 17">
+                <img class="w3-border" src="img/18.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 18">
+                <img class="w3-border" src="img/19.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 19">
+                <img class="w3-border" src="img/20.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 20">
+                <img class="w3-border" src="img/21.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 21">
+                <img class="w3-border" src="img/22.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 22">
+                <img class="w3-border" src="img/23.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 23">
+                <img class="w3-border" src="img/24.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 24">
+                <img class="w3-border" src="img/27.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 27">
+                <img class="w3-border" src="img/28.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 28">
+                <img class="w3-border" src="img/38.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 38">
             </div>
             <div class="w3-third">
-                <img class="w3-border" src="img/30.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/31.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/32.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/33.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/34.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/36.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/37.jpg" style="width:100%" onclick="onClick(this)" alt="">
-                <img class="w3-border" src="img/40.jpg" style="width:100%" onclick="onClick(this)" alt="">
+                <img class="w3-border" src="img/30.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 30">
+                <img class="w3-border" src="img/31.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 31">
+                <img class="w3-border" src="img/32.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 32">
+                <img class="w3-border" src="img/33.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 33">
+                <img class="w3-border" src="img/34.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 34">
+                <img class="w3-border" src="img/36.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 36">
+                <img class="w3-border" src="img/37.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 37">
+                <img class="w3-border" src="img/40.jpg" style="width:100%" onclick="onClick(this)" alt="imagen 40">
 
             </div>
         </div>
@@ -167,10 +167,11 @@ try {
 
         <!-- Modal for full size images on click-->
         <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-            <span class="w3-button w3-black w3-xlarge w3-display-topright">&times;</span>
+            <span class="w3-button w3-black w3-xxxlarge w3-display-topright click-registro" title="cerrar imagen">&times;</span>
             <div class="w3-modal-content w3-animate-opacity w3-center w3-transparent w3-padding-32">
-                <img id="img01" class="w3-image">
-                <p id="caption"></p>
+                <img id="img01" class="w3-image" alt="cerrar imagen">
+                <!-- este parrafo muestra el atributo alt de la imagen -->
+                <!-- <p id="caption"></p> -->
             </div>
         </div>
 
@@ -193,23 +194,23 @@ try {
 
                 <div class="w3-container w3-padding-64 w3-light-grey w3-center w3-large w3-text-grey">
 
-                    <a href="https://api.whatsapp.com/send?phone=59894741095" target="_blank" title="WhatsApp">
+                    <a href="https://api.whatsapp.com/send?phone=59894741095" class="click-registro" target="_blank" title="WhatsApp">
                         <i class="fa fa-2x fa-whatsapp" aria-hidden="true"></i>
                     </a>
 
-                    <a href="https://www.facebook.com/rafaelburg" target="_blank" title="Facebook">
+                    <a href="https://www.facebook.com/rafaelburg" class="click-registro" target="_blank" title="Facebook">
                         <i class="fa fa-2x fa-facebook-official w3-hover-opacity"></i>
                     </a>
 
-                    <a href="https://www.instagram.com/rafael_burgueno/" target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/rafael_burgueno/" class="click-registro" target="_blank" title="Instagram">
                         <i class="fa fa-2x fa-instagram w3-hover-opacity"></i>
                     </a>
 
-                    <a href="https://github.com/rafaelburg" target="_blank" title="GitHub">
+                    <a href="https://github.com/rafaelburg" class="click-registro" target="_blank" title="GitHub">
                         <i class="fa fa-2x fa-github w3-hover-opacity"></i>
                     </a>
 
-                    <a href="https://codepen.io/rburg/" target="_blank" title="Codepen">
+                    <a href="https://codepen.io/rburg/" class="click-registro" target="_blank" title="Codepen">
                         <i class="fa fa-2x fa-codepen w3-hover-opacity"></i>
                     </a>
 
@@ -227,8 +228,7 @@ try {
         CONFIRMACION DE LA CAPTURA DE DATOS
         ====================================-->
         
-        <?php
-            /*
+        <!--
             if($confirmacion == 'exito'){
                 echo '<div class="w3-panel w3-green">';
                 echo '<h3>Notificación</h3><p>Se han guardado datos de su dirección ip.</p></div>';
@@ -237,10 +237,11 @@ try {
                 echo '<h3>Notificación</h3><p>'. $confirmacion .'</p></div>';
             }
             */
-        ?>
+        -->
 
 
-    </div><!--fin del PAGE CONTENT-->
+    </div>
+    <!--fin del PAGE CONTENT-->
 
 
 
@@ -261,8 +262,10 @@ try {
         function onClick(element) {
             document.getElementById("img01").src = element.src;
             document.getElementById("modal01").style.display = "block";
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = element.alt;
+            
+            // las siguientes dos lines son las que escriben el texto abajo de la imagen modal
+            // var captionText = document.getElementById("caption");
+            // captionText.innerHTML = element.alt;
         }
     </script>
 
