@@ -27,18 +27,22 @@ function getRealIP() {
 
 class VisitasControlador{
 
+    
     public $accion;
     public $fecha;
     
-
+    
     /*===================================
     Registrar visita
     ===================================*/
-
+    
     public function guardarVisitaCtr(){
+        
+        date_default_timezone_set('America/Montevideo');
 
         $descripcion = $this->accion;
-        $fecha = $this->fecha;
+        // $fecha = $this->fecha;
+        $fecha = date("Y-m-d H:i:s");
         $ip = getRealIP();
 
         $respuesta = VisitasModelo::registroVisitasMdl("registro_visitas", $descripcion, $ip, $fecha);
@@ -54,8 +58,11 @@ class VisitasControlador{
 
     public function guardarClickCtr(){
 
+        date_default_timezone_set('America/Montevideo');
+
         $dato = "Click en ".$this->accion;
-        $fecha = $this->fecha;
+        // $fecha = $this->fecha;
+        $fecha = date("Y-m-d H:i:s");
         $ip = getRealIP();
 
         $respuesta = VisitasModelo::registroClickMdl("registro_visitas", $dato, $ip, $fecha);
