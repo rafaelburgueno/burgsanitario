@@ -45,7 +45,7 @@ class VisitasControlador{
         $fecha = date("Y-m-d H:i:s");
         $ip = getRealIP();
 
-        $respuesta = VisitasModelo::registroVisitasMdl("registro_visitas", $descripcion, $ip, $fecha);
+        $respuesta = VisitasModelo::registroVisitasMdl("registro_visitas_2", $descripcion, $ip, $fecha);
 
        echo $respuesta;
 
@@ -65,7 +65,7 @@ class VisitasControlador{
         $fecha = date("Y-m-d H:i:s");
         $ip = getRealIP();
 
-        $respuesta = VisitasModelo::registroClickMdl("registro_visitas", $dato, $ip, $fecha);
+        $respuesta = VisitasModelo::registroClickMdl("registro_visitas_2", $dato, $ip, $fecha);
 
        echo $respuesta;
 
